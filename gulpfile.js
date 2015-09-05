@@ -5,6 +5,7 @@ var path         = require('path');
 var gulp         = require('gulp');
 var gulpif       = require('gulp-if');
 var util         = require('gulp-util');
+var prettyHrtime = require('pretty-hrtime');
 
 var sequence     = require('run-sequence');
 var browserSync  = require('browser-sync');
@@ -23,27 +24,19 @@ var watchify     = require('watchify');
 
 
 var root   = './';
-var build  = root + 'build/'
-var ignore = [
-  '!./node_modules/**',
-  '!^_*',
-  '!' + root +  'ignore/**',
-  '!' + root +  'libs/**',
-  '!' + root +  '**/libs/**',
-  '!' + root +  '**/*.map',
-  '!' + build + 'bundle.js'
-];
-function mergeIgnore(array){
-  return ignore.concat(array);
-}
+var build  = root + 'build/';
 
-var src={
-  js:   mergeIgnore([root + '**/**.js'])
+var src = {
+  js: 'type.js'
 };
 
 
 
 gulp.task('default', function(){
+  compile(false, true);
+  gulp.watch(src.js,   ['lint', reload]);
+});
+gulp.task('watch', function(){
   browserSync({
     notify:    false,
     logPrefix: 'WSK',
@@ -55,8 +48,7 @@ gulp.task('default', function(){
 
 
 gulp.task('lint', function(){
-  return gulp.src(src.js.concat(src.jsx))
-    .pipe(cached('lint'))
+  return gulp.src(src.js)
     .pipe(eslint({useEslintrc: true}))
     .pipe(eslint.format())
     .pipe(eslint.failAfterError());
@@ -80,9 +72,9 @@ gulp.task('watchify', function(){
  * @param {Boolean} isWatch  true is diff
  */
 function compile(isUglify, isWatch, isLint){
-  var _src       = root + 'app.js';
+  var _src       = root + 'test.js';
   var _dest      = build;
-  var bundlejs   = 'bundle.js';
+  var bundlejs   = 'test-bundle.js';
   if(isUglify){
     bundlejs = 'bundle.min.js';
   }
