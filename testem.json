@@ -6,7 +6,7 @@
         "PhantomJS"
     ],
     "src_files" : [
-        "type.js",
+        "build/test-bundle.js",
         "test/**/*.js"
     ]
 }

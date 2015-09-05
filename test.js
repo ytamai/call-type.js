@@ -1,2 +1,2 @@
 
-window.type = require('./type.js');
+window.callType = require('./call-type.js');

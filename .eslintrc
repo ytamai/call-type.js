@@ -6,6 +6,7 @@
     "amd": true
   },
   "rules": {
+    "no-underscore-dangle": 0,
     "no-multi-spaces" : 0,
     "no-alert": 2,
     "no-array-constructor": 2,
@@ -46,7 +47,6 @@
     "no-ternary": 0,
     "no-self-compare": 2,
     "no-sync": 2,
-    "no-underscore-dangle": 2,
     "no-loop-func": 2,
     "no-empty-label": 2,
     "no-unused-vars": 1,

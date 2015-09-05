@@ -27,7 +27,7 @@ var root   = './';
 var build  = root + 'build/';
 
 var src = {
-  js: 'type.js'
+  js: 'call-type.js'
 };
 
 
