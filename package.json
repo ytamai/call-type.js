@@ -1,8 +1,8 @@
 {
   "name": "type",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "javascript type checker",
-  "main": "type.js",
+  "main": "call-type.js",
   "directories": {
     "test": "test"
   },
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ytamai/type.git"
+    "url": "https://github.com/ytamai/call-type.js.git"
   },
   "keywords": [
     "javascript",
